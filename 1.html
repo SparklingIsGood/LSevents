@@ -9,6 +9,7 @@
     <title>1</title>
 </head>
 <body>
+    <button style="padding: 100px;">Prêt</button>
     <video id='video' playsinline>
         <source src="https://drive.google.com/uc?export=download&id=1gde2db5sCOciHjqqsYAbIb7Ep_YPE9Dn" type="video/mp4">
     </video>
@@ -17,13 +18,11 @@
     var pusher = new Pusher('9f1b602df68c549601f4', {
     cluster: 'eu'
   });
-
-  var channel = pusher.subscribe('sync-launch');
+  document.querySelector('button').addEventListener('click', () => {
+    var channel = pusher.subscribe('sync-launch');
   channel.bind('start-show', function(data) {
-    var vid = document.getElementById('video');
-    vid.playsinline = true
-    vid.autoplay = true
-    vid.muted = true
+    document.querySelector('video').play();
   });
+    });
 </script>
 </html>
