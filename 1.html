@@ -15,12 +15,7 @@
 
   var channel = pusher.subscribe('sync-launch');
   channel.bind('start-show', function(data) {
-    if (isMobile && isSafari) {
         document.getElementById('video').autoplay = true
-      }
-    else {
-        document.getElementById('video').play();
-    }
   });
 </script>
 <body>
