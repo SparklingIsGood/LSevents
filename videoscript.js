@@ -22,7 +22,7 @@ document.querySelector('button').addEventListener('click', async () => {
     document.getElementById('beforeStart').style.display = "block";
 
     var el = document.getElementById('beforeStart');
-    if (!el.mozFullScreenElement && !el.webkitFullscreenElement) {
+    if (!el.mozRequestFullScreen && !el.webkitRequestFullscreen) {
         el.requestFullscreen();
     } else if (el.mozRequestFullScreen) {
         el.mozRequestFullScreen();
