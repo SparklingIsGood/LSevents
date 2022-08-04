@@ -21,14 +21,6 @@ document.querySelector('button').addEventListener('click', async () => {
     document.getElementById('ready').style.display = "none";
     document.getElementById('startRed').style.display = "block";
 
-    if (/apple/i.test(navigator.vendor)) {
-        vid.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
-    } else if (navigator.userAgent.indexOf("Firefox") != -1) {
-        vid.mozRequestFullScreen();
-    } else {
-        vid.requestFullscreen();
-    }
-
     await waitUntil(() => launch == true)
 
     noSleep.disable();
