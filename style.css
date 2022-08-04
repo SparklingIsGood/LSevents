@@ -2,8 +2,8 @@ body {
   background-color: black;
 }
 
-::-webkit-scrollbar {
-  display: none;
+html{
+  background-color: #ff0000;
 }
 
 :-webkit-full-screen {
