@@ -22,7 +22,13 @@ document.querySelector('button').addEventListener('click', async () => {
     document.getElementById('beforeStart').style.display = "block";
 
     var el = document.getElementById('beforeStart');
-    el.requestFullscreen();
+    if (!document.mozFullScreenElement && !document.webkitFullscreenElement) {
+        el.requestFullscreen();
+    } else if (document.documentElement.mozRequestFullScreen) {
+        el.mozRequestFullScreen();
+    } else if (document.documentElement.webkitRequestFullscreen) {
+        el.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+    }
 
     await waitUntil(() => launch == true)
 
