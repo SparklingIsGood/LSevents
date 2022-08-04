@@ -71,6 +71,8 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
+  position: inherit;
+  background-color: black;
   border: 50px solid white;
   display: none;
 }
