@@ -22,12 +22,13 @@ document.querySelector('button').addEventListener('click', async () => {
     document.getElementById('beforeStart').style.display = "block";
 
     var el = document.getElementById('beforeStart');
-    if (!el.mozRequestFullScreen && !el.webkitRequestFullscreen) {
-        el.requestFullscreen();
-    } else if (el.mozRequestFullScreen) {
-        el.mozRequestFullScreen();
-    } else if (el.webkitRequestFullscreen) {
+
+    if (/apple/i.test(navigator.vendor)) {
         el.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+    } else if (navigator.userAgent.indexOf("Firefox") != -1) {
+        el.mozRequestFullScreen();
+    } else {
+        el.requestFullscreen();
     }
 
     await waitUntil(() => launch == true)
