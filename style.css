@@ -72,22 +72,20 @@ html{
   font-size: 1000%;
 }
 
-#beforeStart {
+#startRed {
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  border: 50px solid white;
   display: none;
 }
 
 video {
   height: 100%;
   width: 100%;
-  display: none;
 }
 
-#startDiv {
+#ready {
   position: absolute;
   top: 0;
   right: 0;

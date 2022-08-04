@@ -18,26 +18,22 @@ document.querySelector('button').addEventListener('click', async () => {
     vid.play();
     vid.pause();
 
-    document.getElementById('startDiv').style.display = "none";
-    document.getElementById('beforeStart').style.display = "block";
-
-    var el = document.getElementById('beforeStart');
+    document.getElementById('ready').style.display = "none";
+    document.getElementById('startRed').style.display = "block";
 
     if (/apple/i.test(navigator.vendor)) {
-        el.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+        vid.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
     } else if (navigator.userAgent.indexOf("Firefox") != -1) {
-        el.mozRequestFullScreen();
+        vid.mozRequestFullScreen();
     } else {
-        el.requestFullscreen();
+        vid.requestFullscreen();
     }
 
     await waitUntil(() => launch == true)
 
     noSleep.disable();
     
-    document.getElementById('deviceIndex').style.display = "none";
-    document.getElementById('beforeStart').style.border = "none";
-    vid.style.display = "block";
+    document.getElementById('startRed').style.border = "none";
     vid.play();
 });
 
