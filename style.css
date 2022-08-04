@@ -1,15 +1,20 @@
 body {
-    background-color: black;
-  }
-  #none{
-    color: whitesmoke;
-    font-family: Arial, Helvetica, sans-serif;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -200%);
-    text-align: center;
-    text-shadow:
+  background-color: black;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+#none {
+  color: whitesmoke;
+  font-family: Arial, Helvetica, sans-serif;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -200%);
+  text-align: center;
+  text-shadow:
     0 0 7px #fff,
     0 0 10px #fff,
     0 0 21px #fff,
@@ -18,37 +23,82 @@ body {
     0 0 92px #0fa,
     0 0 102px #0fa,
     0 0 151px #0fa;
-  }
-  #val{
-    color: whitesmoke;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-  }
-  #nonep{
-    color: whitesmoke;
-    font-family: Arial, Helvetica, sans-serif;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    font-size: x-large;
-    text-align: center;
-  }
-  #valp{
-    color: whitesmoke;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: x-large;
-    text-align: center;
-  }
-  #combo{
-    position: fixed;
-    left: 50%;
-    transform: translate(-50%, 0%);
-  }
-  video {
-    height: 100vh;
-    width: 100%;
 }
-::-webkit-scrollbar {
+
+#val {
+  color: whitesmoke;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+#nonep {
+  color: whitesmoke;
+  font-family: Arial, Helvetica, sans-serif;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  font-size: x-large;
+  text-align: center;
+}
+
+#valp {
+  color: whitesmoke;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: x-large;
+  text-align: center;
+}
+
+#combo {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+#deviceIndex {
+  color: whitesmoke;
+  font-family: Arial, Helvetica, sans-serif;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  text-align: center;
+  font-size: 1000%;
+}
+
+#beforeStart {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: 50px solid white;
   display: none;
+}
+
+video {
+  height: 100%;
+  width: 100%;
+  display: none;
+}
+
+#startDiv {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#start {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: #04AA6D;
+  padding: 14px 28px;
+  font-size: 200px;
+  text-align: center;
+  color: whitesmoke;
 }

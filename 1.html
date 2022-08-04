@@ -1,49 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
-    <title>1</title>
+    <title>LSevents</title>
 </head>
+
 <body>
-    <button style="padding: 100px;">Prêt</button>
-    <video id='video' playsinline>
-        <source src="https://drive.google.com/uc?export=download&id=1gde2db5sCOciHjqqsYAbIb7Ep_YPE9Dn" type="video/mp4">
-    </video>
+    <div id="startDiv">
+        <button id="start">Prêt</button>
+    </div>
+    <div id="beforeStart">
+        <h1 id="deviceIndex">1</h1>
+        <video id='video' playsinline>
+            <source src="https://drive.google.com/uc?export=download&id=1gde2db5sCOciHjqqsYAbIb7Ep_YPE9Dn"
+                type="video/mp4">
+        </video>
+    </div>
 </body>
-<script>
-    var pusher = new Pusher('9f1b602df68c549601f4', {
-    cluster: 'eu'
-    });
-
-    launch = false;
-
-    var channel = pusher.subscribe('sync-launch');
-    channel.bind('start-show', function(data) {
-        launch = true;
-    });
-
-    document.querySelector('button').addEventListener('click', async () => {
-        document.querySelector('video').play();
-        document.querySelector('video').pause();
-        await waitUntil(() => launch == true)
-        document.querySelector('video').play();
-    });
-
-    const waitUntil = (condition) => {
-    return new Promise((resolve) => {
-        let interval = setInterval(() => {
-            if (!condition()) {
-                return
-            }
-
-            clearInterval(interval)
-            resolve()
-        }, 100)
-    })
-}
-</script>
+<script src="videoscript.js"></script>
 </html>

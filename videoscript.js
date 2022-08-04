@@ -1,13 +1,42 @@
 var pusher = new Pusher('9f1b602df68c549601f4', {
     cluster: 'eu'
-  });
+});
 
-  var channel = pusher.subscribe('sync-launch');
-  channel.bind('start-show', function(data) {
-    if (isMobile && isSafari) {
-        document.getElementById('video').autoplay = true
-      }
-    else {
-        document.getElementById('video').play();
-    }
-  });
+launch = false;
+
+var channel = pusher.subscribe('sync-launch');
+channel.bind('start-show', function (data) {
+    launch = true;
+});
+
+document.querySelector('button').addEventListener('click', async () => {
+    var vid = document.querySelector('video');
+    vid.play();
+    vid.pause();
+
+    document.getElementById('startDiv').style.display = "none";
+    document.getElementById('beforeStart').style.display = "block";
+
+    var el = document.getElementById('beforeStart');
+    el.requestFullscreen();
+
+    await waitUntil(() => launch == true)
+
+    document.getElementById('deviceIndex').style.display = "none";
+    document.getElementById('beforeStart').style.border = "none";
+    vid.style.display = "block";
+    vid.play();
+});
+
+const waitUntil = (condition) => {
+    return new Promise((resolve) => {
+        let interval = setInterval(() => {
+            if (!condition()) {
+                return
+            }
+
+            clearInterval(interval)
+            resolve()
+        }, 100)
+    })
+}
