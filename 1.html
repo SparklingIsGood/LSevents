@@ -17,12 +17,31 @@
 <script>
     var pusher = new Pusher('9f1b602df68c549601f4', {
     cluster: 'eu'
-  });
-  document.querySelector('button').addEventListener('click', () => {
-    var channel = pusher.subscribe('sync-launch');
-  channel.bind('start-show', function(data) {
-    document.querySelector('video').play();
-  });
     });
+
+    launch = false;
+
+    var channel = pusher.subscribe('sync-launch');
+    channel.bind('start-show', function(data) {
+        launch = true;
+    });
+
+    document.querySelector('button').addEventListener('click', async () => {
+        await waitUntil(() => launch == true)
+        document.querySelector('video').play()
+    });
+
+    const waitUntil = (condition) => {
+    return new Promise((resolve) => {
+        let interval = setInterval(() => {
+            if (!condition()) {
+                return
+            }
+
+            clearInterval(interval)
+            resolve()
+        }, 100)
+    })
+}
 </script>
 </html>
