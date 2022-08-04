@@ -22,11 +22,11 @@ document.querySelector('button').addEventListener('click', async () => {
     document.getElementById('beforeStart').style.display = "block";
 
     var el = document.getElementById('beforeStart');
-    if (!document.mozFullScreenElement && !document.webkitFullscreenElement) {
+    if (!el.mozFullScreenElement && !el.webkitFullscreenElement) {
         el.requestFullscreen();
-    } else if (document.documentElement.mozRequestFullScreen) {
+    } else if (el.mozRequestFullScreen) {
         el.mozRequestFullScreen();
-    } else if (document.documentElement.webkitRequestFullscreen) {
+    } else if (el.webkitRequestFullscreen) {
         el.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
     }
 
